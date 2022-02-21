@@ -64,7 +64,7 @@ import { Tooltip } from "../components/Tooltip";
 import { shield } from "../components/icons";
 
 import "./index.scss";
-import { ExportToExcalidrawPlus } from "./components/ExportToExcalidrawPlus";
+// import { ExportToExcalidrawPlus } from "./components/ExportToExcalidrawPlus";
 
 import { getMany, set, del, keys, createStore } from "idb-keyval";
 import { FileManager, updateStaleImageStatuses } from "./data/FileManager";
@@ -271,14 +271,18 @@ const initializeScene = async (opts: {
 
 const PlusLinkJSX = (
   <p style={{ direction: "ltr", unicodeBidi: "embed" }}>
-    Introducing Excalidraw+
-    <br />
+    Built with{" "}
     <a
-      href="https://plus.excalidraw.com/plus?utm_source=excalidraw&utm_medium=banner&utm_campaign=launch"
+      href="https://github.com/excalidraw/excalidraw"
       target="_blank"
       rel="noreferrer"
     >
-      Try out now!
+      Excalidraw
+    </a>
+    <br />
+    Provided by{" "}
+    <a href="https://qrku.net" target="_blank" rel="noreferrer">
+      qrku.net
     </a>
   </p>
 );
@@ -701,22 +705,22 @@ const ExcalidrawWrapper = () => {
           canvasActions: {
             export: {
               onExportToBackend,
-              renderCustomUI: (elements, appState, files) => {
-                return (
-                  <ExportToExcalidrawPlus
-                    elements={elements}
-                    appState={appState}
-                    files={files}
-                    onError={(error) => {
-                      excalidrawAPI?.updateScene({
-                        appState: {
-                          errorMessage: error.message,
-                        },
-                      });
-                    }}
-                  />
-                );
-              },
+              // renderCustomUI: (elements, appState, files) => {
+              //   return (
+              //     <ExportToExcalidrawPlus
+              //       elements={elements}
+              //       appState={appState}
+              //       files={files}
+              //       onError={(error) => {
+              //         excalidrawAPI?.updateScene({
+              //           appState: {
+              //             errorMessage: error.message,
+              //           },
+              //         });
+              //       }}
+              //     />
+              //   );
+              // },
             },
           },
         }}
